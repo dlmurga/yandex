@@ -21,7 +21,7 @@ resource "yandex_compute_instance" "template" {
 
   boot_disk {
     initialize_params {
-      size = "15G"
+      size = "15"
       image_id = "${var.image_id}"
     }
   }
