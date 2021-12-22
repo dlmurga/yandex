@@ -26,7 +26,7 @@ resource "yandex_compute_instance" "template" {
   }
   network_interface {
     nat = true
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = "${var.subnet_id}"
   }
   resources {
     cores = 2
