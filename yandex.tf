@@ -17,8 +17,7 @@ provider "yandex" {
 
 resource "yandex_compute_instance" "template" {
   name = "vm1"
-
-
+  count = 1
   boot_disk {
     initialize_params {
       size = "15"
@@ -26,7 +25,8 @@ resource "yandex_compute_instance" "template" {
     }
   }
   network_interface {
-    subnet_id = "${var.subnet_id}"
+    nat = true
+    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
   }
   resources {
     cores = 2
